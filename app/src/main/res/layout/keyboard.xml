@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Keyboard"
     >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +25,7 @@
             android:text="W" />
 
         <Button
-            android:id="@+id/button_E"
+            android:id="@+id/button_e"
             style="@style/CharKey"
             android:text="E" />
 
@@ -72,6 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
@@ -129,7 +130,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +139,8 @@
         <Button
             android:id="@+id/button_enter"
             style="@style/ActionKey"
-            android:text="Enter" />
+            android:text="Enter"
+             />
 
         <Button
             android:id="@+id/button_z"
@@ -163,7 +165,7 @@
         <Button
             android:id="@+id/button_b"
             style="@style/CharKey"
-            android:text="b" />
+            android:text="B" />
 
         <Button
             android:id="@+id/button_n"
@@ -173,12 +175,11 @@
         <Button
             android:id="@+id/button_m"
             style="@style/CharKey"
-            android:text="J" />
+            android:text="M" />
 
         <ImageButton
             android:id="@+id/button_delete"
             style="@style/ActionKey"
-            android:src="@drawable/ic_baseline_backspace_24" />
+            app:srcCompat="@drawable/ic_baseline_backspace_24" />
     </LinearLayout>
     </merge>
-</merge>
