@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Learning/Android/Wordle Clone/app/src/main/res/drawable/edit_text.xml" value="0.1" />
+        <entry key="..\:/Learning/Android/Wordle Clone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2555" />
         <entry key="..\:/Learning/Android/Wordle Clone/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Learning/Android/Wordle Clone/app/src/main/res/layout/keyboard.xml" value="0.25" />
       </map>
@@ -13,5 +15,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.12" />
+      </ProjectState>
+    </option>
   </component>
 </project>

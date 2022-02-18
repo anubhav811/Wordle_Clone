@@ -1,84 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Keyboard"
+    >
 
     <LinearLayout
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/button_6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/button_0"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-         </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         >
+
         <Button
-            android:id="@+id/button_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:id="@+id/button_q"
+            style="@style/CharKey"
+            android:text="Q" />
+
         <Button
-            android:id="@+id/button_0"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:id="@+id/button_w"
+            style="@style/CharKey"
+            android:text="W" />
+
+        <Button
+            android:id="@+id/button_E"
+            style="@style/CharKey"
+            android:text="E" />
+
+        <Button
+            android:id="@+id/button_r"
+            style="@style/CharKey"
+            android:text="R" />
+
+        <Button
+            android:id="@+id/button_t"
+            style="@style/CharKey"
+            android:text="T" />
+
+        <Button
+            android:id="@+id/button_y"
+            style="@style/CharKey"
+            android:text="Y" />
+
+        <Button
+            android:id="@+id/button_u"
+            style="@style/CharKey"
+            android:text="U" />
+
+        <Button
+            android:id="@+id/button_i"
+            style="@style/CharKey"
+            android:text="I" />
+
+        <Button
+            android:id="@+id/button_o"
+            style="@style/CharKey"
+            android:text="O" />
+
+        <Button
+            android:id="@+id/button_p"
+            style="@style/CharKey"
+            android:text="P" />
+
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
+        <Button
+            android:id="@+id/button_a"
+            style="@style/CharKey"
+            android:text="A" />
+
+        <Button
+            android:id="@+id/button_s"
+            style="@style/CharKey"
+            android:text="S" />
+
+        <Button
+            android:id="@+id/button_d"
+            style="@style/CharKey"
+            android:text="D" />
+
+        <Button
+            android:id="@+id/button_f"
+            style="@style/CharKey"
+            android:text="F" />
+
+        <Button
+            android:id="@+id/button_g"
+            style="@style/CharKey"
+            android:text="G" />
+
+        <Button
+            android:id="@+id/button_h"
+            style="@style/CharKey"
+            android:layout_weight="1"
+            android:text="H" />
+
+        <Button
+            android:id="@+id/button_j"
+            style="@style/CharKey"
+            android:layout_weight="1"
+            android:text="J" />
+
+        <Button
+            android:id="@+id/button_k"
+            style="@style/CharKey"
+            android:layout_weight="1"
+            android:text="K" />
+
+        <Button
+            android:id="@+id/button_l"
+            style="@style/CharKey"
+            android:text="L" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <Button
+            android:id="@+id/button_enter"
+            style="@style/ActionKey"
+            android:text="Enter" />
+
+        <Button
+            android:id="@+id/button_z"
+            style="@style/CharKey"
+            android:text="Z" />
+
+        <Button
+            android:id="@+id/button_x"
+            style="@style/CharKey"
+            android:text="X" />
+
+        <Button
+            android:id="@+id/button_c"
+            style="@style/CharKey"
+            android:text="C" />
+
+        <Button
+            android:id="@+id/button_v"
+            style="@style/CharKey"
+            android:text="V" />
+
+        <Button
+            android:id="@+id/button_b"
+            style="@style/CharKey"
+            android:text="b" />
+
+        <Button
+            android:id="@+id/button_n"
+            style="@style/CharKey"
+            android:text="N" />
+
+        <Button
+            android:id="@+id/button_m"
+            style="@style/CharKey"
+            android:text="J" />
+
+        <ImageButton
+            android:id="@+id/button_delete"
+            style="@style/ActionKey"
+            android:src="@drawable/ic_baseline_backspace_24" />
+    </LinearLayout>
+    </merge>
 </merge>
