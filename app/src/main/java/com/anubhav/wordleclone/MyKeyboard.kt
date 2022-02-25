@@ -15,7 +15,7 @@ class MyKeyboard @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) :
-    LinearLayout(context, attrs, defStyleAttr), View.OnClickListener {
+    LinearLayout(context, attrs, defStyleAttr) , View.OnClickListener {
     val keys : SparseArray<Any> = SparseArray()
     private var inputConnection: InputConnection? = null
 
@@ -50,7 +50,7 @@ class MyKeyboard @JvmOverloads constructor(
         button_m.setOnClickListener(this)
 
         button_enter.setOnClickListener(this)
-        button_delete.setOnClickListener(this)
+//        button_delete.setOnClickListener(this)
         
         keys.put(R.id.button_q,"Q")
         keys.put(R.id.button_w,"W")
@@ -83,14 +83,16 @@ class MyKeyboard @JvmOverloads constructor(
 
 override fun onClick(view: View) {
     if (inputConnection == null) return
-    if (view.id == R.id.button_delete) {
-        val selectedText = inputConnection!!.getSelectedText(0)
-        if (TextUtils.isEmpty(selectedText)) {
-            inputConnection!!.deleteSurroundingText(1, 0)
-        } else {
-            inputConnection!!.commitText("", 1)
-        }
-    } else {
+    if (view.id == R.id.button_delete){
+//        val selectedText = inputConnection!!.getSelectedText(0)
+//        if (TextUtils.isEmpty(selectedText)) {
+//            inputConnection!!.deleteSurroundingText(1, 0)
+//
+         }
+////        else {
+//            inputConnection!!.commitText("", 1)
+//}
+     else {
         val value = keys[view.id]
         inputConnection!!.commitText(value as CharSequence?, 1)
     }
