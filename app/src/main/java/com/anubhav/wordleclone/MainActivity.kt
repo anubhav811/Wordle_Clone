@@ -3,116 +3,198 @@ package com.anubhav.wordleclone
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.SparseArray
-import android.view.KeyEvent
-import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.keyboard.*
-import kotlinx.android.synthetic.main.keyboard.view.*
+import java.util.*
+import java.util.Arrays.asList
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
-    val WORD = "TIGER"
-    val keys: SparseArray<Any> = SparseArray()
     var currRow = 1;
-    val inputConnection = et_11.onCreateInputConnection(EditorInfo())
-    val inputConnection2 = et_12.onCreateInputConnection(EditorInfo())
-    val inputConnection3 = et_13.onCreateInputConnection(EditorInfo())
-    val inputConnection4 = et_14.onCreateInputConnection(EditorInfo())
-    val inputConnection5 = et_15.onCreateInputConnection(EditorInfo())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var wordET1: ArrayList<EditText> = ArrayList()
-        wordET1.add(et_11)
-        wordET1.add(et_12)
-        wordET1.add(et_13)
-        wordET1.add(et_14)
-        wordET1.add(et_15)
+        val ic11 = et_11.onCreateInputConnection(EditorInfo())
+        val ic12 = et_12.onCreateInputConnection(EditorInfo())
+        val ic13 = et_13.onCreateInputConnection(EditorInfo())
+        val ic14 = et_14.onCreateInputConnection(EditorInfo())
+        val ic15 = et_15.onCreateInputConnection(EditorInfo())
 
-        var ics : ArrayList<InputConnection> = ArrayList()
-        ics.add(inputConnection)
-        ics.add(inputConnection2)
-        ics.add(inputConnection3)
-        ics.add(inputConnection4)
-        ics.add(inputConnection5)
+        val ic21 = et_21.onCreateInputConnection(EditorInfo())
+        val ic22 = et_22.onCreateInputConnection(EditorInfo())
+        val ic23 = et_23.onCreateInputConnection(EditorInfo())
+        val ic24 = et_24.onCreateInputConnection(EditorInfo())
+        val ic25 = et_25.onCreateInputConnection(EditorInfo())
 
-        et_11.requestFocus()
+        val ic31 = et_31.onCreateInputConnection(EditorInfo())
+        val ic32 = et_32.onCreateInputConnection(EditorInfo())
+        val ic33 = et_33.onCreateInputConnection(EditorInfo())
+        val ic34 = et_34.onCreateInputConnection(EditorInfo())
+        val ic35 = et_35.onCreateInputConnection(EditorInfo())
 
-        et_11.addTextChangedListener(GenericTextWatcher(et_11, et_12,keyboard,ics[1]))
-        et_12.addTextChangedListener(GenericTextWatcher(et_12, et_13,keyboard,ics[2]))
-        et_13.addTextChangedListener(GenericTextWatcher(et_13, et_14,keyboard,ics[3]))
-        et_14.addTextChangedListener(GenericTextWatcher(et_14, et_15,keyboard,ics[4]))
-        et_15.addTextChangedListener(GenericTextWatcher(et_15, null,keyboard,ics[5]))
+        val ic41 = et_41.onCreateInputConnection(EditorInfo())
+        val ic42 = et_42.onCreateInputConnection(EditorInfo())
+        val ic43 = et_43.onCreateInputConnection(EditorInfo())
+        val ic44 = et_44.onCreateInputConnection(EditorInfo())
+        val ic45 = et_45.onCreateInputConnection(EditorInfo())
 
-        et_11.setOnKeyListener(GenericKeyEvent(et_11, null))
-        et_12.setOnKeyListener(GenericKeyEvent(et_12, et_11))
-        et_13.setOnKeyListener(GenericKeyEvent(et_13, et_12))
-        et_14.setOnKeyListener(GenericKeyEvent(et_14,et_13))
-        et_15.setOnKeyListener(GenericKeyEvent(et_15,et_14))
+        val ic51 = et_51.onCreateInputConnection(EditorInfo())
+        val ic52 = et_52.onCreateInputConnection(EditorInfo())
+        val ic53 = et_53.onCreateInputConnection(EditorInfo())
+        val ic54 = et_54.onCreateInputConnection(EditorInfo())
+        val ic55 = et_55.onCreateInputConnection(EditorInfo())
+
+        val ic61 = et_61.onCreateInputConnection(EditorInfo())
+        val ic62 = et_62.onCreateInputConnection(EditorInfo())
+        val ic63 = et_63.onCreateInputConnection(EditorInfo())
+        val ic64 = et_64.onCreateInputConnection(EditorInfo())
+        val ic65 = et_65.onCreateInputConnection(EditorInfo())
+
+        val wordET1: ArrayList<EditText> = ArrayList(listOf(et_11, et_12, et_13, et_14, et_15))
+        val wordET2: ArrayList<EditText> = ArrayList(listOf(et_21, et_22, et_23, et_24, et_25))
+        val wordET3: ArrayList<EditText> = ArrayList(listOf(et_31, et_32, et_33, et_34, et_35))
+        val wordET4: ArrayList<EditText> = ArrayList(listOf(et_41, et_42, et_43, et_44, et_45))
+        val wordET5: ArrayList<EditText> = ArrayList(listOf(et_51, et_52, et_53, et_54, et_55))
+        val wordET6: ArrayList<EditText> = ArrayList(listOf(et_61, et_62, et_63, et_64, et_65))
+
+
+        val ics1: ArrayList<InputConnection> = ArrayList(listOf(ic11, ic12, ic13, ic14, ic15))
+        val ics2: ArrayList<InputConnection> = ArrayList(listOf(ic21, ic22, ic23, ic24, ic25))
+        val ics3: ArrayList<InputConnection> = ArrayList(listOf(ic31, ic32, ic33, ic34, ic35))
+        val ics4: ArrayList<InputConnection> = ArrayList(listOf(ic41, ic42, ic43, ic44, ic45))
+        val ics5: ArrayList<InputConnection> = ArrayList(listOf(ic51, ic52, ic53, ic54, ic55))
+        val ics6: ArrayList<InputConnection> = ArrayList(listOf(ic61, ic62, ic63, ic64, ic65))
+
+        if (currRow == 1) {
+            setupEts(wordET1, ics1)
+            setupBackSpace(button_delete, wordET1)
+        }
     }
 
-    class GenericKeyEvent internal constructor(private val currentView: EditText, private val previousView: EditText?) : View.OnKeyListener {
-        override fun onKey(p0: View?, keyCode: Int, event: KeyEvent?): Boolean {
-            if (event!!.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL && currentView.id != R.id.et_11 && currentView.text.isEmpty()) {
-                previousView!!.text = null
-                previousView.requestFocus()
+    private fun setupEts(wordEt: ArrayList<EditText>, ics: ArrayList<InputConnection>) {
+        wordEt[0].requestFocus()
+        keyboard.setInputConnection(ics[0])
 
-                return true
+        wordEt[0].addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
             }
-            return false
-        }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (wordEt[0].length() == 1 && wordEt[0].isFocused) {
+                    wordEt[1].requestFocus()
+                    keyboard.setInputConnection(ics[1])
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+
+        })
+        wordEt[1].addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (wordEt[1].length() == 1 && wordEt[1].isFocused) {
+                    wordEt[2].requestFocus()
+                    keyboard.setInputConnection(ics[2])
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        wordEt[2].addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (wordEt[2].length() == 1 && wordEt[2].isFocused) {
+                    wordEt[3].requestFocus()
+                    keyboard.setInputConnection(ics[3])
+                }
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+
+        })
+        wordEt[3].addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (wordEt[3].length() == 1 && wordEt[3].isFocused) {
+                    wordEt[4].requestFocus()
+                    keyboard.setInputConnection(ics[4])
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
     }
 
-    class GenericTextWatcher internal constructor(private val currentView: View, private val nextView: View?,private var keyboard: MyKeyboard ,private val ic: InputConnection) : TextWatcher {
-        override fun afterTextChanged(editable: Editable) { // TODO Auto-generated method stub
-            val text = editable.toString()
-            when (currentView.id) {
-                R.id.et_11 -> if (text.length == 1) {
-                    nextView!!.requestFocus()
-                    keyboard.setInputConnection(ic)
+    private fun setupBackSpace(button: ImageButton, wordEt: ArrayList<EditText>) {
+        button.setOnClickListener {
+            if (wordEt[0].isFocused) {
+                if (wordEt[0].text.length == 1) {
+                    wordEt[0].text = null
                 }
-                R.id.et_12 -> if (text.length == 1) {
-                    nextView!!.requestFocus()
+            }
+            if (wordEt[1].isFocused) {
+                if (wordEt[1].text.length == 1) {
+                    wordEt[1].text = null
+                } else {
+                    wordEt[0].requestFocus()
+                    wordEt[0].text = null
                 }
-                R.id.et_13 -> if (text.length == 1) {
-                    nextView!!.requestFocus()
+            }
+            if (wordEt[2].isFocused) {
+                if (wordEt[2].text.length == 1) {
+                    wordEt[2].text = null
+                } else {
+                    wordEt[1].requestFocus()
+                    wordEt[1].text = null
                 }
-                R.id.et_14 -> if (text.length == 1) {
-                    nextView!!.requestFocus()
+            }
+            if (wordEt[3].isFocused) {
+                if (wordEt[3].text.length == 1) {
+                    wordEt[3].text = null
+                } else {
+                    wordEt[2].requestFocus()
+                    wordEt[2].text = null
                 }
-                //You can use EditText4 same as above to hide the keyboard
+            }
+            if (wordEt[4].isFocused) {
+                if (wordEt[4].text.length == 1) {
+                    wordEt[4].text = null
+                } else {
+                    wordEt[3].requestFocus()
+                    wordEt[3].text = null
+                }
             }
         }
-
-        override fun beforeTextChanged(
-            arg0: CharSequence,
-            arg1: Int,
-            arg2: Int,
-            arg3: Int
-        ) { // TODO Auto-generated method stub
-        }
-
-        override fun onTextChanged(
-            arg0: CharSequence,
-            arg1: Int,
-            arg2: Int,
-            arg3: Int
-        ) { // TODO Auto-generated method stub
-        }
-
     }
-
-
 
 }
+
+
+
+
 
 
 

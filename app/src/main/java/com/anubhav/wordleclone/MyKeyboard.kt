@@ -50,8 +50,7 @@ class MyKeyboard @JvmOverloads constructor(
         button_m.setOnClickListener(this)
 
         button_enter.setOnClickListener(this)
-//        button_delete.setOnClickListener(this)
-        
+
         keys.put(R.id.button_q,"Q")
         keys.put(R.id.button_w,"W")
         keys.put(R.id.button_e,"E")
@@ -82,20 +81,8 @@ class MyKeyboard @JvmOverloads constructor(
 
 
 override fun onClick(view: View) {
-    if (inputConnection == null) return
-    if (view.id == R.id.button_delete){
-//        val selectedText = inputConnection!!.getSelectedText(0)
-//        if (TextUtils.isEmpty(selectedText)) {
-//            inputConnection!!.deleteSurroundingText(1, 0)
-//
-         }
-////        else {
-//            inputConnection!!.commitText("", 1)
-//}
-     else {
         val value = keys[view.id]
         inputConnection!!.commitText(value as CharSequence?, 1)
-    }
 }
 
 fun setInputConnection(ic: InputConnection?) {
